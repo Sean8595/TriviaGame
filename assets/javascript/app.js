@@ -10,18 +10,21 @@ function questions() {
       choices: ["res one", "res two"],
       answer: "res one"
     }
-  ];
+  ]
+  function display(i) {
+    var newDiv = $("<div>")
+    newDiv.append(questionsTotal[i].quest)
+    newDiv.append(questionsTotal[i].choices)
+  }
+  display()
+  questionsTotal[i].quest
+  ;
 
   for (var i = 0; i < questionsTotal.length; i++){
     console.log(questionsTotal[i].quest);
     console.log(questionsTotal[i].choices)
     console.log(questionsTotal[i].answer)
-    ;
-    $("#question").text(questionsTotal[i].quest)
-    $("#answer-block").text(questionsTotal[i].choices[0])
-    $("#answer-block").text(questionsTotal[i].choices[1])
-
-
+  
 }
 }
 questions();
