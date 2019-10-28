@@ -9,36 +9,36 @@ function questions() {
         correct: "8 d6"
     },
     {
-        q: "What is the name of Jasmine's tiger?",
-        a1: "Raja",
-        a2: "Apu",
-        a3: "Sher",
-        a4: "Khan",
-        correct: "Raja"
+        q: "Which is not a class in 5e?",
+        a1: "Mage",
+        a2: "Wizard",
+        a3: "Warlock",
+        a4: "Sorcerer",
+        correct: "Mage"
     },
      {   
-       q: "Who shot JFK?",
-       a1: "Lee Harvey Oswald",
-       a2: "Jack Ruby",
-       a3: "John Hinkley",
-       a4: "A Grassy Gnoll",
-       correct: "Lee Harvey Oswald"
+       q: "How many times can you use a cantrip?",
+       a1: "3 per day",
+       a2: "1",
+       a3: "As many times as you want",
+       a4: "15",
+       correct: "As many times as you want"
      },
      {   
-      q: "In which year was Alaska sold to the U.S.?",
-      a1: "11",
-      a2: "1867",
-      a3: "1904",
-      a4: "1794",
-      correct: "1867"
+      q: "What is a tiefling?",
+      a1: "A type of elf",
+      a2: "Someone with infernal ancestory",
+      a3: "A type of magic",
+      a4: "A magical item",
+      correct: "Someone with infernal ancestory"
     },
     {   
-      q: "Where would you find the Sea of Tranquility?",
-      a1: "The Moon",
-      a2: "India",
-      a3: "China",
-      a4: "Philly",
-      correct: "The Moon"
+      q: "Where can you find Duegar?",
+      a1: "The Mountains",
+      a2: "A Jungle",
+      a3: "In a large city",
+      a4: "The Underdark",
+      correct: "The Underdark"
     },
     {   
       q: "What kind of weapon is a falchion",
@@ -49,12 +49,12 @@ function questions() {
       correct: "Sword"
     },
     {   
-      q: "Who was the legendary Benedictine monk who invented champagne?",
-      a1: "Dom Perignon.",
-      a2: "Don Flamingo",
-      a3: "La Croix",
-      a4: "Lincoln",
-      correct: "Dom Perignon"
+      q: "Who Betrayed and Ultimately defeated Vecna?",
+      a1: "The Lady Vex'alia",
+      a2: "Arkhan the Cruel",
+      a3: "Kas the Bloody-Handed",
+      a4: "Mordenkainen",
+      correct: "Kas the Bloody-Handed"
     },
     {   
       q: "What does a Barbarian use as hit dice?",
@@ -65,13 +65,21 @@ function questions() {
       correct: "D12"
     },
     {   
-      q: "Who was the legendary Benedictine monk who invented champagne?",
-      a1: "Dom Perignon.",
-      a2: "Don Flamingo",
-      a3: "La Croix",
-      a4: "Lincoln",
-      correct: "Dom Perignon"
+      q: "What does every Barbarian use to fight with?",
+      a1: "A battle-axe",
+      a2: "Rage",
+      a3: "Sword and Sheild",
+      a4: "Lance",
+      correct: "Rage"
     },
+{
+    q: "What is ",
+    a1: "A battle-axe",
+    a2: "Rage",
+    a3: "Sword and Sheild",
+    a4: "Lance",
+    correct: "Rage"
+}
   ]
 
   var correctpoints;
@@ -82,23 +90,12 @@ function questions() {
 
     // Display the questions on the page
     for (var i = 0; i < questionsTotal.length; i++) {
-      console.log(questionsTotal[i].q);
-      console.log(questionsTotal[i].a1);
-      console.log(questionsTotal[i].a2);
-      console.log(questionsTotal[i].a3);
-      console.log(questionsTotal[i].a4);
-      console.log(questionsTotal[i].correct);
-
-function submitFunction(){
-  if("question"=questionsTotal.correct){
-    correctpoints++
-  }
-  else{
-    incorrectpoints++
-  }
-  alert("You got "+ correctpoints + "correct")
-  alert("You got "+ incorrectpoints + "wrong")
-}
+      // console.log(questionsTotal[i].q);
+      // console.log(questionsTotal[i].a1);
+      // console.log(questionsTotal[i].a2);
+      // console.log(questionsTotal[i].a3);
+      // console.log(questionsTotal[i].a4);
+      // console.log(questionsTotal[i].correct);
 
       var newDiv = $("<div>");
       newDiv.append("<div>" + questionsTotal[i].q + "</div>");
@@ -106,26 +103,54 @@ function submitFunction(){
       newDiv.append("<div><input type='radio' name='question" + (i + 1) + "' value='" +questionsTotal[i].a2 + "' /><span>"+ questionsTotal[i].a2 + "</span></div>");
       newDiv.append("<div><input type='radio' name='question" + (i + 1) + "' value='" +questionsTotal[i].a3 + "' /><span>"+ questionsTotal[i].a3 + "</span></div>");
       newDiv.append("<div><input type='radio' name='question" + (i + 1) + "' value='" +questionsTotal[i].a4 + "' /><span>"+ questionsTotal[i].a4 + "</span></div>");
-      $("#Submit").on("click",function(){
-        submitFunction()
-      })
+      // $("#Submit").on("click",function(){
+      //   submitFunction()
+      // })
       $(".asking").append(newDiv)
     }
   }
-
   $("#start").on("click", function() {
     display();
     $("#start").hide();
+
+    $('input').on('click', function () {
+      console.log($(this).val())
+
+    })
+    $("#Submit").on("click",function(){
+      for (let i = 0; i < questionsTotal.correct.length; i++) {
+        if (correct = $(this).val()){
+          // correctpoints++;
+          console.log(questionsTotal[i].correct[i]);
+        }
+        else{
+          // incorrectpoints++;
+        }
+      }
+      })
+
+
+
+
+
+
   });
-  $(".asking").text(questionsTotal[i].quest);
 }
 questions();
 {/* <input type="radio" name="question1" value="incorrect"> */}
 
 function QuizTime(){
+  clearInterval
+  setTimeout(timeUp, 1000 * 120)
+
   if (!clockRunning) {
-    intervalId = setInterval(count, 1000);
+    intervalId = setInterval(decrement, 1000);
+    function decrement(){
+
+    }
     clockRunning = true;  
 }
 }
 
+
+    
